@@ -30,7 +30,7 @@
 	<icon src="icons/ios/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
 	<icon src="icons/ios/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" />
 	
-	<preference name="phonegap-version" value="3.1.0" />	
+	<preference name="phonegap-version" value="3.3.0" />	
 	<preference name="orientation" value="portrait" />
 	<preference name="webviewbounce" value="false" />
 	
