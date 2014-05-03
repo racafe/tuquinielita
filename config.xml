@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
    	xmlns:gap = "http://phonegap.com/ns/1.0"
    	id        = "com.tuquinielita.v1"
-   	version   = "0.0.7">
+   	version   = "0.0.6">
 	
 	<name>TQ.com</name>
 	
@@ -15,7 +15,6 @@
 	</author>
 	
 	<access origin="*" />
-	<gap:plugin name="com.phonegap.plugin.statusbar" />
 	
 	<gap:splash src="splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
 	<gap:splash src="splash/ios/Default_at_2x.png" gap:platform="ios" width="640" height="960" />
@@ -29,8 +28,7 @@
 	<icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
 	<icon src="icons/ios/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
 	<icon src="icons/ios/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" />
-	
-	<preference name="phonegap-version" value="3.3.0" />	
+		
 	<preference name="orientation" value="portrait" />
 	<preference name="webviewbounce" value="false" />
 	
@@ -39,4 +37,6 @@
 	<plugin name="NetworkStatus" value="CDVConnection" />
 	<plugin name="File" value="CDVFile" />
 	<plugin name="FileTransfer" value="CDVFileTransfer" />
+	
+	<gap:plugin name="com.phonegap.plugins.childbrowser" />
 </widget>

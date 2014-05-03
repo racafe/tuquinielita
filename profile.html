@@ -1,0 +1,142 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Tuquinielita.com</title> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
+	<link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css"/>
+    <script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="js/purl.js"></script>
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/jquery.mobile.iscrollview.js"></script>
+	<script src="js/scripts.js"></script>
+</head> 
+<body>
+<div data-role="page" id="profile_page">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+	    <img src="images/logo2.png" class="logobg" />
+	    <a href="#" id="logout" class="ui-btn-right" style="right:40px">Logout</a>
+        <a href="#" onClick="profile_page()" data-icon="refresh" data-theme="a" data-iconpos="notext" data-transition="slideup" class="ui-btn-right">Actualizar</a>
+		<h1 id="username_title">&nbsp;</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-iscroll="">
+        <div class="iscroll-pulldown">
+          <center><span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span></center>
+        </div>		
+        <div class="head">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                	<a href="#popupProfilePic" data-rel="popup" data-position-to="window" data-transition="fade"><img id="profile_pic" src="" /></a>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-grid-b">
+                        <div class="ui-block-c"><h4 id="user_pools_number">--</h4> quinielas</div>
+                        <div class="ui-block-c"><h4 id="user_groups_number">--</h4> grupos</div>
+                        <div class="ui-block-c"><h4 id="user_balance">--</h4> puntos</div>
+                    </div>
+                    <div class="ui-grid-solo">
+                        <ul data-role="listview" data-theme="a" id="profile_edit_button">
+                        	<li data-theme="a">&nbsp;</li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /grid-a -->
+            <div id="name"></div>
+        </div>
+        <div data-role="navbar" class="nav-custom">
+            <ul>
+                <li><a href="#" id="profile_stats_button" class="stats_button" data-icon="custom">Estadísticas</a></li>
+                <li><a href="#" id="profile_points_button" data-icon="custom" class="pools_button ui-btn-active">Puntos</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div id="profile_points_div" class="profile_divs" style="display:block">
+            <center>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="N4HXJGER6EJZE">
+                    <input type="hidden" name="custom" id="custom" value="">
+                    <table>
+                    <tr><td><input type="hidden" name="on0" value="Monto">Monto</td></tr><tr><td><select name="os0">
+                        <option value="200 puntos">200 puntos $212.00 MXN</option>
+                        <option value="400 puntos">400 puntos $420.00 MXN</option>
+                        <option value="600 puntos">600 puntos $628.00 MXN</option>
+                        <option value="1,000 puntos">1,000 puntos $1,044.00 MXN</option>
+                    </select> </td></tr>
+                    </table>
+                    <input type="hidden" name="currency_code" value="MXN">
+                    <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynow_SM.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </center>
+		</div>
+        <div id="profile_stats_div" class="profile_divs">
+
+        </div>
+	</div><!-- /content -->
+	<div data-role="footer" data-position="fixed" data-id="foo1" data-tap-toggle="false">		
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="home.html" data-icon="home2" data-transition="none">Inicio</a></li>
+                <li><a href="groups.html" data-icon="group" data-transition="none">Grupos</a></li>
+                <!--li><a href="#popupInfo" data-rel="popup" data-icon="medal" data-transition="slide">Estadística</a></li-->
+                <li><a href="profile.html" class="ui-btn-active ui-state-persist"  data-icon="profile" data-transition="none">Perfil</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+    <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+		<p>PROXIMAMENTE</p>
+    </div>
+    <div data-role="popup" id="popupProfilePic" data-overlay-theme="a" data-theme="d" data-corners="false" onClick="$(this).popup('close')">
+		<!--a href="#" id="close_popup" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a-->
+        <img class="popphoto" src="" style="max-height:512px;">
+	</div>
+    <div data-role="popup" id="popupEdit" data-overlay-theme="a" data-theme="a" style="position:fixed; bottom:0; left:0; width:100%; padding:15px;" data-dismissible="false">
+        <div data-role="content" data-theme="a">
+	        <button id="change_photo" data-rel="back" data-theme="c" data-corners="false">Cambiar foto</button>
+            <a href="#popupPassword" data-role="button" data-rel="popup" data-transition="slidedown" data-position-to="window" data-theme="c" data-corners="false">Cambiar contraseña</a>
+            <a href="#popupEditInfo" data-role="button" data-rel="popup" data-transition="slidedown" data-position-to="window" data-theme="c" data-corners="false">Cambiar info</a>
+            <a href="#" data-role="button" data-rel="back" data-theme="a" data-corners="false">Cancelar</a>    
+        </div>
+	</div>
+    <div data-role="popup" id="popupPassword" data-theme="a" data-overlay-theme="a" data-dismissible="false">
+	    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" onClick="$('#popupPassword input').val('')">Close</a>
+		<form>
+			<div style="padding:10px;">
+	          <input type="password" name="pass" id="pw" value="" placeholder="actual" data-theme="a" />
+	          <input type="password" name="pass1" id="pw1" value="" placeholder="nueva" data-theme="a" />
+	          <input type="password" name="pass2" id="pw2" value="" placeholder="confirmar" data-theme="a" size="30" />
+              <p id="password-error"></p>
+	    	  <button type="button" data-theme="d" data-corners="false"  onClick="updatePassword()">Guardar</button>
+              <a href="#" data-role="button" data-rel="back" data-theme="a" data-corners="false" onClick="$('#popupPassword input').val('')">Cancelar</a>    
+			</div>
+		</form>
+	</div>
+    <div data-role="popup" id="popupEditInfo" data-theme="a" data-overlay-theme="a" data-dismissible="false">
+	    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" onClick="localStorageValues()">Close</a>
+		<form>
+			<div style="padding:10px;">
+	          <input type="text" name="name" id="input_name" value="" placeholder="nombre" data-theme="a" />
+	          <input type="text" name="lastname" id="input_lastname" value="" placeholder="apellido" data-theme="a" />
+	          <input type="text" name="email" id="input_email" value="" placeholder="email" data-theme="a" size="30"/>
+              <p id="info-error"></p>
+	    	  <button type="button" data-theme="d" data-corners="false" onClick="updateUser()">Guardar</button>
+              <a href="#" data-role="button" data-rel="back" data-theme="a" data-corners="false" onClick="localStorageValues()">Cancelar</a>    
+			</div>
+		</form>
+	</div>
+    <div data-role="popup" id="image_saving_status" data-overlay-theme="a" data-transition="pop" class="ui-content">	
+        <div data-role="content">
+            <h4></h4>
+        </div>
+    </div>
+</div><!-- /page one -->
+
+</body>
+</html>

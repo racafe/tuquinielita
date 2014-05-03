@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Tuquinielita.com</title> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
+	<link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css"/>
+    <script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="js/purl.js"></script>
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/jquery.mobile.iscrollview.js"></script>
+	<script src="js/scripts.js"></script>
+</head> 
+<body> 
+<div data-role="page" id="pool" data-theme="c">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+    	<a href="index.html" data-icon="arrow-l" data-rel="back" data-theme="a" data-iconpos="notext" data-transition="slideup">Atrás</a>
+		<img src="images/logo2.png" class="logobg" />
+        <h3 id="pool_title">&nbsp;</h3>
+	</div><!-- /header -->
+	<div data-role="content" id="quiniela">	
+        <form name="multilistings" id="multilistings"></form>
+	</div><!-- /content -->
+    <div data-role="popup" id="pool_confirm" data-overlay-theme="a" data-transition="pop">	
+        <div data-role="content">
+            <h4>¿Esta seguro de guardar la quiniela?</h4>
+            <a href="#" onClick="save_pool();" data-role="button" data-theme="e" data-corners="false">Guardar</a>       
+            <a href="#" data-role="button" data-rel="back" data-theme="c" data-corners="false">Cancel</a>    
+        </div>
+    </div>
+    <div data-role="popup" id="pool_error" data-overlay-theme="a" data-transition="pop" class="ui-content">	
+        <div data-role="content">
+            <h4>Favor de llenar toda la quiniela</h4>
+        </div>
+    </div>
+</div><!-- /page one -->
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Tuquinielita.com</title> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
+	<link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css"/>
+    <script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="js/purl.js"></script>
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/jquery.mobile.iscrollview.js"></script>
+	<script src="js/scripts.js"></script>
+</head> 
+<body> 
+<div data-role="page" id="pool_profile">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+    	<a href="#" class="back" data-icon="arrow-l" data-theme="a" data-iconpos="notext" data-transition="slide" data-direction="reverse">Atrás</a>
+	    <img src="images/logo2.png" class="logobg" />
+		<h2 id="pool_profile_title">&nbsp;</h2>
+        <a href="#" onClick="refreshPage()" data-icon="refresh" data-theme="a" data-iconpos="notext" data-transition="slideup" class="ui-btn-right">Actualizar</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-iscroll="">
+        <div class="iscroll-pulldown">
+          <center><span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span></center>
+        </div>	
+    	<div id="participate_button_container"></div>
+        <div data-role="navbar" class="nav-custom">
+            <ul>
+            	<li><a href="#" id="pool_profile_info_button" data-icon="custom" class="info_button ui-btn-active">Info</a></li>
+                <li><a href="#" id="pool_profile_stats_button" data-icon="custom" class="stats_button">Resultado</a></li>
+                <li><a href="#" id="pool_profile_members_button" class="members_button" data-icon="custom">Participando</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div id="pool_profile_info_div" class="pool_profile_divs" style="display:block;">
+            <div style="padding:0 10px;">
+				<p>DESCRIPCIÓN</p>
+                <p id="pool_description"></p>
+                <div id="monto">
+	                <p>MONTO</p>
+    	            <p id="pool_amount"></p>
+                </div>
+            </div>
+		</div>
+        <div id="pool_profile_stats_div" class="pool_profile_divs">
+            <ol id="pool_profile_standing" data-role="listview" data-inset="true" style="margin:1px 0"></ol>
+		</div>
+        <div id="pool_profile_members_div" class="pool_profile_divs">
+	        <div id="pool_profile_members_piechart" style="width:100%; min-width:290px; height:200px; margin:0 auto"></div>
+			<ul id="pool_profile_members_list" data-role="listview"  data-filter="true" data-filter-reveal="true" data-filter-placeholder="Buscar" data-inset="true"></ul>
+        </div>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="foo1" data-tap-toggle="false">		
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="home.html" data-icon="home2" data-transition="none">Inicio</a></li>
+                <li><a href="groups.html" data-icon="group" data-transition="none">Grupos</a></li>
+                <!--li><a href="#popupInfo" data-rel="popup" data-icon="medal" data-transition="slide">Estadística</a></li-->
+                <li><a href="profile.html" data-icon="profile" data-transition="none">Perfil</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+    <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a">
+		<p>PROXIMAMENTE</p>
+    </div>
+    <div data-role="popup" id="popupParticipate" data-overlay-theme="a" data-position-to="window" data-overlay-theme="a" data-transition="pop">	
+	    <div style="padding:10px;">
+    	    <div data-role="content">
+        	    <h4>Debes participar para ver las quinielas de los demás participantes.</h4>
+        	</div>
+        </div>
+    </div>
+</div><!-- /page one -->
+</body>
+</html>
