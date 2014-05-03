@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+   	xmlns:gap = "http://phonegap.com/ns/1.0"
+   	id        = "com.tuquinielita.v1"
+   	version   = "0.0.7">
+	
+	<name>TQ.com</name>
+	
+	<description>
+		TUQUINIELITA.com
+	</description>
+
+	<author href="http://www.technit.com.mx" email="ventas@technit.com.mx">
+	TECHNIT SOLUTIONS
+	</author>
+	
+	<access origin="*" />
+	<gap:plugin name="com.phonegap.plugin.statusbar" />
+	
+	<gap:splash src="splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="splash/ios/Default_at_2x.png" gap:platform="ios" width="640" height="960" />
+	<gap:splash src="splash/ios/Default_iphone5.png" gap:platform="ios" width="640" height="1136" />
+	<gap:splash src="splash/ios/Default-Landscape.png" gap:platform="ios" width="1024" height="748" />
+	<gap:splash src="splash/ios/Default-Portrait.png" gap:platform="ios" width="768" height="1004" />
+	<!--gap:splash src="splash/ios/Default-Landscape_at_2x.png" gap:platform="ios" width="2048" height="1496" />
+	<gap:splash src="splash/ios/Default-Portrait_at_2x.png" gap:platform="ios" width="1536" height="2008" /-->
+	
+	<icon src="icons/ios/icon.png" gap:platform="ios" width="57" height="57" />
+	<icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="icons/ios/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
+	<icon src="icons/ios/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" />
+	
+	<preference name="phonegap-version" value="3.1.0" />	
+	<preference name="orientation" value="portrait" />
+	<preference name="webviewbounce" value="false" />
+	
+	<plugin name="Notification" value="CDVNotification" />
+	<plugin name="Camera" value="CDVCamera" />
+	<plugin name="NetworkStatus" value="CDVConnection" />
+	<plugin name="File" value="CDVFile" />
+	<plugin name="FileTransfer" value="CDVFileTransfer" />
+</widget>

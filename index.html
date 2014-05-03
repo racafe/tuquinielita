@@ -1,0 +1,413 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Tuquinielita.com</title> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
+	<link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css"/>
+    <script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="statusbar.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <!--script src="js/iscroll.js"></script>
+    <script src="js/jquery.mobile.iscrollview.js"></script>
+    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script-->
+	<script src="js/scripts.js"></script>
+</head> 
+<body>
+<!--   LOGIN PAGE   -->
+<div data-role="page" id="login" data-theme="b">
+	<div class="overlay"><img src="images/logo2.png" style="position:absolute; top:50%; left:50%; margin-top:-59px; margin-left:-59px; max-width:40%; opacity:0.5" /></div>
+   <div data-role="content" style="text-align:center;">
+   	   <img src="images/logo2.png" style="max-width:40%; -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));filter: url(#drop-shadow); opacity:0.5" /><br><br>
+       <fieldset>
+          <form method="post" id="loginForm">
+            <input type="text" name="username" id="username" placeholder="Username or Email" />
+            <input type="password" name="password" id="password" placeholder="Password" />
+            <input id="login-button" type="button" value="Login" data-role="button" data-corners="false"/>
+         </fieldset>
+      </form>
+      <p id="login-error"></p>
+      <center>
+      	<br>
+      	<hr class="sexy_line" /><br>
+		<a href="#popupInfo" class="auth-twitter" data-rel="popup" data-role="button" data-inline="true" data-corners="false">Sign in with Twitter</a>
+        <a href="#popupInfo" class="auth-facebook" data-rel="popup" data-role="button" data-inline="true" data-corners="false">Sign in with Facebook</a>
+        <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+        	<p>PROXIMAMENTE</p>
+		</div>
+      </center>
+      <div id="images"></div>
+  </div>
+ </div> 
+<!--   END LOGIN PAGE   -->
+
+<!--   HOME PAGE   -->
+<div data-role="page" id="home" data-theme="a">
+
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+    	<a href="#" onClick="refreshPage()" data-icon="refresh" data-theme="a" data-iconpos="notext" data-transition="slideup" class="ui-btn-right">Actualizar</a>
+		<img src="images/logo2.png" class="logobg" />
+        <h1>&nbsp;</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-iscroll="">
+        <div class="iscroll-pulldown">
+        	<center><span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span></center>
+        </div>
+        <!--p><a href="#" onclick="showStatusBar(false); return false;">Hide Status Bar</a></p>
+            <p><a href="#" onclick="showStatusBar(true); return false;">Show Status Bar</a></p>
+    
+            <p><a href="#" onclick="setColor('red'); return false;">Red Status Bar</a></p>
+            <p><a href="#" onclick="setColor('blue'); return false;">Blue Status Bar</a></p>
+            <p><a href="#" onclick="setColor('black'); return false;">Black Status Bar</a></p>
+    
+        <p><a href="#" onclick="overlayWebView(true); return false;">Status Bar Overlays WebView</a></p>
+        <p><a href="#" onclick="overlayWebView(false); return false;">Status Bar sits above WebView</a></p>
+    
+        <p><a href="#" onclick="lightContent(); return false;">Light Content Status Bar</a></p>
+        <p><a href="#" onclick="defaultStyle(); return false;">Default Status Bar Style</a></p-->
+        		
+        <ul id="lista" data-role="listview" data-theme="c" data-divider-theme="a">
+            <li data-role="list-divider">Nuevas quinielas</li>
+        </ul>
+        <ul id="lista2" data-role="listview" data-theme="c" data-divider-theme="a">
+            <li data-role="list-divider">Quinielas abiertas</li>
+        </ul>
+        
+        <ul id="lista3" data-role="listview" data-theme="c" data-divider-theme="a">
+            <li data-role="list-divider"><!--div class="slider" style="position:absolute; left:-100px; margin-top:-8px !important; padding:0; width:100px; height:29px; line-height:29px; background-color: rgb(23, 128, 247); text-align:center;">QUÉ IRIS!</div-->Quinielas en juego</li>
+        </ul>
+	</div><!-- /content -->
+	<div data-role="footer" data-position="fixed" data-id="foo1" data-tap-toggle="false"></div>
+    <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+		<p>PROXIMAMENTE</p>
+    </div>
+</div>
+<!--   END HOME PAGE   -->
+<!--   GROUPS PAGE   -->
+<div data-role="page" id="groups" data-theme="a">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+    	<a href="#" onClick="groups_page()" data-icon="refresh" data-theme="a" data-iconpos="notext" data-transition="slideup" class="ui-btn-right">Actualizar</a>
+		<img src="images/logo2.png" class="logobg" />
+        <h1>&nbsp;</h1>
+	</div><!-- /header -->
+	<div data-role="content" data-iscroll="">
+        <div class="iscroll-pulldown">
+          <center><span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span></center>
+        </div>		
+        <div data-role="collapsible" data-theme="a" data-content-theme="c" style="margin:-15px; margin-bottom:0;">
+            <h2>Privados</h2>
+            <ul id="private_groups" data-role="listview" data-filter="true" data-filter-theme="c" data-divider-theme="d" data-filter-placeholder="Buscar" >
+            </ul>
+        </div>
+        <div data-role="collapsible" data-theme="a" data-content-theme="c" style="margin:0 -15px;">
+            <h2>Públicos</h2>
+            <ul id="public_groups" data-role="listview" data-filter="true" data-filter-theme="c" data-divider-theme="d" data-filter-placeholder="Buscar" >
+            </ul>
+        </div>
+        <div data-role="collapsible" data-theme="a" data-content-theme="c" style="margin:0 -15px;">
+            <h2>Administrador</h2>
+            <ul id="admin_groups" data-role="listview" data-filter="true" data-filter-theme="c" data-divider-theme="d" data-filter-placeholder="Buscar" >
+            </ul>
+        </div>
+        <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+            <p>PROXIMAMENTE</p>
+        </div>
+	</div><!-- /content -->
+	<div data-role="footer" data-position="fixed" data-id="foo1" data-tap-toggle="false"></div>
+</div>
+<!--   END GROUPS PAGE   -->
+<!--   GROUP PAGE   -->
+<div data-role="page" id="group">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+    	<a href="#groups" data-icon="arrow-l" data-theme="a" data-transition="slide" data-direction="reverse">Atrás</a>
+	    <img src="images/logo2.png" class="logobg" />
+		<h1 id="group_title">&nbsp;</h1>
+        <a href="#" onClick="refreshPage()" data-icon="refresh" data-theme="a" data-iconpos="notext" data-transition="slideup" class="ui-btn-right">Actualizar</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-iscroll="">
+        <div class="iscroll-pulldown">
+          <center><span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span></center>
+        </div>	
+        <div id="head" class="head">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><img id="group_pic" src="" /></div>
+                <div class="ui-block-b">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-c"><h4 id="group_pools_number">--</h4> quinielas</div>
+                        <div class="ui-block-c"><h4 id="group_members_number">--</h4> miembros</div>
+                    </div>
+                    <div class="ui-grid-solo">
+                        <ul data-role="listview" data-theme="a" id="join_group_button">
+                            <li id="join_group_button">&nbsp;</li>
+                        </ul>
+                    </div>
+                    <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+                        <p>PROXIMAMENTE</p>
+                    </div>
+                </div>
+            </div><!-- /grid-a -->
+            <div id="group_name"></div>
+        </div>
+        <div data-role="navbar" class="nav-custom">
+            <ul>
+                <li><a href="#" id="pools_button" data-icon="custom" class="pools_button ui-btn-active">Quinielas</a></li>
+                <li><a href="#" id="stats_button" class="stats_button" data-icon="custom">Estadísticas</a></li>
+                <li><a href="#" id="members_button" class="members_button" data-icon="custom">Miembros</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div id="group_pools_div" class="group_divs" style="display:block;">
+            <div data-role="collapsible" data-theme="a" data-content-theme="c">
+                <h2>En curso</h2>
+                <ul id="current_group_pools" data-role="listview"></ul>
+            </div>
+            <div data-role="collapsible" data-theme="a" data-content-theme="c">
+                <h2>Últimos 7 días</h2>
+                <ul id="week_group_pools" data-role="listview"></ul>
+            </div>
+            <div data-role="collapsible" data-theme="a" data-content-theme="c">
+                <h2>Todas</h2>
+                <ul id="all_group_pools" data-role="listview"  data-filter="true" data-filter-reveal="true" data-filter-placeholder="Buscar"></ul>
+            </div>
+		</div>
+        <div id="group_stats_div" class="group_divs">
+        	<ol id="group_stats_standing" data-role="listview" data-inset="true" style="margin:1px 0"></ol>
+        </div>
+        <div id="group_members_div" class="group_divs">
+			<ul id="group_members_list" data-role="listview"  data-filter="true" data-filter-reveal="true" data-filter-placeholder="Buscar" data-inset="true"></ul>
+        </div>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="foo1" data-tap-toggle="false"></div>
+    <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+		<p>PROXIMAMENTE</p>
+    </div>
+</div>
+<!--   END GROUP PAGE   -->
+<!--   POOL PROFILE PAGE   -->
+
+<!--   END POOL PROFILE PAGE   -->
+<div data-role="page" id="pool_profile">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+    	<a href="#group" data-icon="arrow-l" data-theme="a" data-transition="slide" data-direction="reverse">Atrás</a>
+	    <img src="images/logo2.png" class="logobg" />
+		<h2 id="pool_profile_title">&nbsp;</h2>
+        <a href="#" onClick="refreshPage()" data-icon="refresh" data-theme="a" data-iconpos="notext" data-transition="slideup" class="ui-btn-right">Actualizar</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-iscroll="">
+        <div class="iscroll-pulldown">
+          <center><span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span></center>
+        </div>	
+    	<div id="participate_button_container"></div>
+        <div data-role="navbar" class="nav-custom">
+            <ul>
+            	<li><a href="#" id="pool_profile_info_button" data-icon="custom" class="info_button ui-btn-active">Info</a></li>
+                <li><a href="#" id="pool_profile_stats_button" data-icon="custom" class="stats_button">Resultado</a></li>
+                <li><a href="#" id="pool_profile_members_button" class="members_button" data-icon="custom">Participando</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div id="pool_profile_info_div" class="pool_profile_divs" style="display:block;">
+            <div style="padding:0 10px;">
+				<p>DESCRIPCIÓN</p>
+                <p id="pool_description"></p>
+                <div id="monto">
+	                <p>MONTO</p>
+    	            <p id="pool_amount"></p>
+                </div>
+            </div>
+		</div>
+        <div id="pool_profile_stats_div" class="pool_profile_divs">
+            <ol id="pool_profile_standing" data-role="listview" data-inset="true" style="margin:1px 0"></ol>
+		</div>
+        <div id="pool_profile_members_div" class="pool_profile_divs">
+	        <div id="pool_profile_members_piechart" style="width:100%; min-width:290px; height:200px; margin:0 auto"></div>
+			<ul id="pool_profile_members_list" data-role="listview"  data-filter="true" data-filter-reveal="true" data-filter-placeholder="Buscar" data-inset="true"></ul>
+        </div>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-id="foo1" data-tap-toggle="false"></div>
+    <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a">
+		<p>PROXIMAMENTE</p>
+    </div>
+    <div data-role="popup" id="popupParticipate" data-overlay-theme="a" data-position-to="window" data-overlay-theme="a" data-transition="pop">	
+	    <div style="padding:10px;">
+    	    <div data-role="content">
+        	    <h4>Debes participar para ver las quinielas de los demás participantes.</h4>
+        	</div>
+        </div>
+    </div>
+</div>
+<!--   POOL PAGE   -->
+<div data-role="page" id="pool" data-theme="c">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+    	<a href="index.html" data-icon="arrow-l" data-rel="back" data-theme="a" data-transition="slide" data-direction="reverse">Atrás</a>
+		<img src="images/logo2.png" class="logobg" />
+        <h3 id="pool_title">&nbsp;</h3>
+	</div><!-- /header -->
+	<div data-role="content" id="quiniela" data-iscroll="">
+        <div class="iscroll-pulldown">
+        	<center><span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span></center>
+        </div>	
+        <form name="multilistings" id="multilistings"></form>
+        <div id="error_reason"></div>
+	</div><!-- /content -->
+    <div data-role="popup" id="pool_confirm" data-overlay-theme="a" data-transition="pop">	
+        <div data-role="content">
+            <h4>¿Esta seguro de guardar la quiniela?</h4>
+            <a href="#" onClick="save_pool();" data-role="button" data-theme="e" data-corners="false">Guardar</a>       
+            <a href="#" data-role="button" data-rel="back" data-theme="c" data-corners="false">Cancel</a>    
+        </div>
+    </div>
+    <div data-role="popup" id="pool_error" data-overlay-theme="a" data-transition="pop" class="ui-content">	
+        <div data-role="content">
+            <h4>Favor de llenar toda la quiniela</h4>
+        </div>
+    </div>
+</div>
+<!--   END POOL PAGE   -->
+
+<!--   PROFILE PAGE   -->
+<div data-role="page" id="profile_page">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+	    <img src="images/logo2.png" class="logobg" />
+	    <a href="#" id="logout" class="ui-btn-right" style="right:40px">Logout</a>
+        <a href="#" onClick="profile_page()" data-icon="refresh" data-theme="a" data-iconpos="notext" data-transition="slideup" class="ui-btn-right">Actualizar</a>
+		<h1 id="username_title">&nbsp;</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-iscroll="">
+        <div class="iscroll-pulldown">
+          <center><span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span></center>
+        </div>		
+        <div class="head">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                	<a href="#popupProfilePic" data-rel="popup" data-position-to="window" data-transition="fade"><img id="profile_pic" src="" /></a>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-grid-b">
+                        <div class="ui-block-c"><h4 id="user_pools_number">--</h4> quinielas</div>
+                        <div class="ui-block-c"><h4 id="user_groups_number">--</h4> grupos</div>
+                        <div class="ui-block-c" id="user_balance_div"><h4 id="user_balance">--</h4> puntos</div>
+                    </div>
+                    <div class="ui-grid-solo">
+                        <ul data-role="listview" data-theme="a" id="profile_edit_button">
+                        	<li data-theme="a">&nbsp;</li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /grid-a -->
+            <div id="name"></div>
+        </div>
+        <div data-role="navbar" class="nav-custom">
+            <ul>
+                <li><a href="#" id="profile_stats_button" class="stats_button" data-icon="custom">Estadísticas</a></li>
+                <li><a href="#" id="profile_points_button" data-icon="custom" class="pools_button ui-btn-active">Puntos</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div id="profile_points_div" class="profile_divs" style="display:block">
+            <center>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="N4HXJGER6EJZE">
+                    <input type="hidden" name="custom" id="custom" value="">
+                    <table>
+                    <tr><td><input type="hidden" name="on0" value="Monto">Monto</td></tr><tr><td><select name="os0">
+                        <option value="200 puntos">200 puntos $212.00 MXN</option>
+                        <option value="400 puntos">400 puntos $420.00 MXN</option>
+                        <option value="600 puntos">600 puntos $628.00 MXN</option>
+                        <option value="1,000 puntos">1,000 puntos $1,044.00 MXN</option>
+                    </select> </td></tr>
+                    </table>
+                    <input type="hidden" name="currency_code" value="MXN">
+                    <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynow_SM.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </center>
+		</div>
+        <div id="profile_stats_div" class="profile_divs">
+
+        </div>
+	</div><!-- /content -->
+	<div data-role="footer" data-position="fixed" data-id="foo1" data-tap-toggle="false"></div>
+    <div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
+		<p>PROXIMAMENTE</p>
+    </div>
+    <div data-role="popup" id="popupProfilePic" data-overlay-theme="a" data-theme="d" data-corners="false" onClick="$(this).popup('close')">
+		<!--a href="#" id="close_popup" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a-->
+        <img class="popphoto" src="" style="max-height:512px;">
+	</div>
+    <div data-role="popup" id="popupEdit" data-overlay-theme="a" data-theme="a" style="position:fixed; bottom:0; left:0; width:100%; padding:15px;" data-dismissible="false">
+        <div data-role="content" data-theme="a">
+	        <button id="change_photo" data-rel="back" data-theme="c" data-corners="false">Cambiar foto</button>
+            <a href="#popupPassword" data-role="button" data-rel="popup" data-transition="slidedown" data-position-to="window" data-theme="c" data-corners="false">Cambiar contraseña</a>
+            <a href="#popupEditInfo" data-role="button" data-rel="popup" data-transition="slidedown" data-position-to="window" data-theme="c" data-corners="false">Cambiar info</a>
+            <a href="#" data-role="button" data-rel="back" data-theme="a" data-corners="false">Cancelar</a>    
+        </div>
+	</div>
+    <div data-role="popup" id="popupPassword" data-theme="a" data-overlay-theme="a" data-dismissible="false">
+	    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" onClick="$('#popupPassword input').val('')">Close</a>
+		<form>
+			<div style="padding:10px;">
+	          <input type="password" name="pass" id="pw" value="" placeholder="actual" data-theme="a" />
+	          <input type="password" name="pass1" id="pw1" value="" placeholder="nueva" data-theme="a" />
+	          <input type="password" name="pass2" id="pw2" value="" placeholder="confirmar" data-theme="a" size="30" />
+              <p id="password-error"></p>
+	    	  <button type="button" data-theme="d" data-corners="false"  onClick="updatePassword()">Guardar</button>
+              <a href="#" data-role="button" data-rel="back" data-theme="a" data-corners="false" onClick="$('#popupPassword input').val('')">Cancelar</a>    
+			</div>
+		</form>
+	</div>
+    <div data-role="popup" id="popupEditInfo" data-theme="a" data-overlay-theme="a" data-dismissible="false">
+	    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" onClick="localStorageValues()">Close</a>
+		<form>
+			<div style="padding:10px;">
+	          <input type="text" name="name" id="input_name" value="" placeholder="nombre" data-theme="a" />
+	          <input type="text" name="lastname" id="input_lastname" value="" placeholder="apellido" data-theme="a" />
+	          <input type="text" name="email" id="input_email" value="" placeholder="email" data-theme="a" size="30"/>
+              <p id="info-error"></p>
+	    	  <button type="button" data-theme="d" data-corners="false" onClick="updateUser()">Guardar</button>
+              <a href="#" data-role="button" data-rel="back" data-theme="a" data-corners="false" onClick="localStorageValues()">Cancelar</a>    
+			</div>
+		</form>
+	</div>
+    <div data-role="popup" id="image_saving_status" data-overlay-theme="a" data-transition="pop" class="ui-content">	
+        <div data-role="content">
+            <h4></h4>
+        </div>
+    </div>
+</div>
+<!--   END PROFILE PAGE   -->
+<!--   BALANCE PAGE   -->
+<div data-role="page" id="balance">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+	    <img src="images/logo2.png" class="logobg" />
+		<h1 id="Balance">&nbsp;</h1>
+        <a href="#" data-icon="arrow-l" data-rel="back" data-theme="a" data-transition="none">Atrás</a>
+	</div><!-- /header -->
+	<div data-role="content">
+        <table data-role="table" id="balance-table" data-mode="reflow" class="ui-responsive table-stroke">
+          <thead>
+            <tr>
+              <th data-priority="1">Fecha</th>
+              <th data-priority="persist">Tipo</th>
+              <th data-priority="2">Monto</th>
+            </tr>
+          </thead>
+          <tbody id="balance-table-rows">
+          </tbody>
+        </table>
+	</div><!-- /content -->
+	<div data-role="footer" data-position="fixed" data-id="foo1" data-tap-toggle="false"></div>
+</div>
+<!--   END BALANCE PAGE   -->
+</body>
+</html>
