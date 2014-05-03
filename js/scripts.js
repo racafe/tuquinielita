@@ -16,7 +16,7 @@ function onDeviceReady(){
         $.mobile.fixedtoolbar.prototype.options.tapToggle = false;
         $.mobile.fixedtoolbar.prototype.options.hideDuringFocus = "";
     });
-	$("input").focus(function(){
+	/*$("input").focus(function(){
 		 alert("hide");
 		$('footer').hide();
 	});
@@ -24,7 +24,7 @@ function onDeviceReady(){
 	$("input").blur(function(){
 		 alert("show");
 		$('footer').show();
-	});
+	});*/
 	var diff;
 	margin_left = 0;
 	$('#lista3 li').live('touchstart', function(event){
